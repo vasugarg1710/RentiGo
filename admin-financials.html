@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><title>Financials - Admin Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="antialiased pt-20 bg-slate-950 text-white">
+    <div id="header-placeholder"></div>
+    <main class="py-8 min-h-screen dashboard-layout gap-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <aside class="w-full md:w-1/4 hidden md:block">
+            <!-- Sidebar content -->
+            <div class="glass-card rounded-3xl p-6 sticky top-28 border border-emerald-500/20 shadow-2xl">
+                <div class="hidden md:flex flex-col items-center mb-8 border-b border-slate-700/50 pb-6">
+                    <div class="w-20 h-20 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-full flex items-center justify-center text-3xl text-white font-black shadow-lg shadow-emerald-500/30 mb-4 border-4 border-slate-800"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h2 class="text-xl font-bold text-white text-center">System Admin</h2>
+                    <p class="text-emerald-400 text-xs font-bold uppercase tracking-widest mt-1">Superuser</p>
+                </div>
+                <nav class="space-y-3">
+                    <a href="admin-dashboard.html" class="flex items-center gap-3 hover:bg-slate-800/80 text-gray-400 hover:text-white px-5 py-3.5 rounded-xl transition-all"><i class="fa-solid fa-chart-pie w-5 text-center"></i> Overview</a>
+                    <a href="admin-users.html" class="flex items-center gap-3 hover:bg-slate-800/80 text-gray-400 hover:text-white px-5 py-3.5 rounded-xl transition-all"><i class="fa-solid fa-users w-5 text-center"></i> User Management</a>
+                    <a href="admin-agencies.html" class="flex items-center gap-3 hover:bg-slate-800/80 text-gray-400 hover:text-white px-5 py-3.5 rounded-xl transition-all"><i class="fa-solid fa-building w-5 text-center"></i> Agencies</a>
+                    <a href="admin-fleet.html" class="flex items-center gap-3 hover:bg-slate-800/80 text-gray-400 hover:text-white px-5 py-3.5 rounded-xl transition-all"><i class="fa-solid fa-car w-5 text-center"></i> Fleet Oversight</a>
+                    <a href="admin-financials.html" class="flex items-center gap-3 bg-emerald-600 hover:bg-emerald-500 text-white px-5 py-3.5 rounded-xl font-bold transition-all shadow-lg hover:shadow-emerald-500/40 translate-x-1"><i class="fa-solid fa-coins w-5 text-center"></i> Financials</a>
+                    <a href="admin-settings.html" class="flex items-center gap-3 hover:bg-slate-800/80 text-gray-400 hover:text-white px-5 py-3.5 rounded-xl transition-all border-t border-slate-700/50 mt-4 pt-4"><i class="fa-solid fa-gear w-5 text-center"></i> System Settings</a>
+                </nav>
+            </div>
+        </aside>
+
+        <div class="w-full md:w-3/4">
+            <h1 class="text-3xl lg:text-4xl font-black text-white mb-8">System <span class="text-gradient">Financials</span></h1>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <div class="glass-card p-6 rounded-3xl border border-slate-700/50">
+                    <p class="text-gray-400 text-xs font-bold uppercase tracking-wider mb-2">Total Platform Volume</p>
+                    <h2 class="text-3xl font-black text-white font-mono">$1.24M</h2>
+                    <p class="text-sm text-green-500 mt-2"><i class="fa-solid fa-arrow-trend-up"></i> +12.4% YTD</p>
+                </div>
+                <div class="glass-card p-6 rounded-3xl border border-slate-700/50">
+                    <p class="text-gray-400 text-xs font-bold uppercase tracking-wider mb-2">Platform Revenue (20%)</p>
+                    <h2 class="text-3xl font-black text-emerald-400 font-mono">$248K</h2>
+                    <p class="text-sm text-green-500 mt-2"><i class="fa-solid fa-arrow-trend-up"></i> +12.4% YTD</p>
+                </div>
+                <div class="glass-card p-6 rounded-3xl border border-slate-700/50">
+                    <p class="text-gray-400 text-xs font-bold uppercase tracking-wider mb-2">Pending Payouts</p>
+                    <h2 class="text-3xl font-black text-orange-400 font-mono">$45.2K</h2>
+                    <button class="text-xs font-bold text-white bg-slate-800 hover:bg-slate-700 px-3 py-1.5 rounded-lg mt-2 transition-colors">Process Payouts</button>
+                </div>
+                <div class="glass-card p-6 rounded-3xl border border-slate-700/50">
+                    <p class="text-gray-400 text-xs font-bold uppercase tracking-wider mb-2">Refunds Processed</p>
+                    <h2 class="text-3xl font-black text-white font-mono">$2.1K</h2>
+                    <p class="text-sm text-gray-500 mt-2">1.4% of total volume</p>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-3xl p-6 border border-slate-700/50">
+                <h3 class="text-xl font-bold mb-6">Revenue Growth (YTD)</h3>
+                <div class="h-80 w-full relative">
+                    <canvas id="systemFinancialsChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div id="footer-placeholder"></div>
+    <script src="js/mock-data.js"></script><script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const ctx = document.getElementById('systemFinancialsChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                    datasets: [{
+                        label: 'Platform Revenue ($)',
+                        data: [30000, 35000, 42000, 41000, 48000, 52000],
+                        borderColor: '#10B981',
+                        backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                        borderWidth: 3,
+                        pointBackgroundColor: '#10B981',
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#64748b' } },
+                        x: { grid: { display: false }, ticks: { color: '#64748b' } }
+                    },
+                    plugins: { legend: { display: false } }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><title>Vehicle Details - RentiGo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="antialiased pt-20">
+    <div id="header-placeholder"></div>
+    <main class="py-12">
+        <div class="max-w-7xl mx-auto px-4" id="detail-container"></div>
+    </main>
+    <div id="footer-placeholder"></div>
+    <script src="js/mock-data.js"></script><script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = getQueryParams();
+            const currentVehicle = mockVehicles.find(v => v.id === params.id);
+            if(!currentVehicle) return document.getElementById('detail-container').innerHTML = '<h2>Not Found</h2>';
+            document.getElementById('detail-container').innerHTML = `
+                <a href="vehicles.html" class="inline-block text-indigo-400 mb-8"><i class="fa-solid fa-arrow-left"></i> Back to Fleet</a>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <div>
+                        <img src="${currentVehicle.image}" class="w-full h-96 object-cover rounded-xl shadow-lg">
+                        <div class="flex gap-4 mt-4 text-gray-300">
+                            <span class="bg-slate-800 px-4 py-2 rounded"><i class="fa fa-gas-pump"></i> ${currentVehicle.fuel}</span>
+                            <span class="bg-slate-800 px-4 py-2 rounded"><i class="fa fa-gears"></i> ${currentVehicle.transmission}</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h1 class="text-4xl font-bold mb-2">${currentVehicle.brand} ${currentVehicle.model}</h1>
+                        <p class="text-gray-400 mb-6">${currentVehicle.description}</p>
+                        <div class="glass-card p-6 rounded-xl border border-indigo-500/20">
+                            <h3 class="text-xl font-bold mb-4">Book Now</h3>
+                            <form onsubmit="alert('Booking confirmed!'); event.preventDefault(); window.location.href='user-dashboard.html'">
+                                <div class="grid grid-cols-2 gap-4 mb-4">
+                                    <input type="date" required class="w-full bg-slate-800 p-3 rounded text-white" style="color-scheme: dark;">
+                                    <input type="date" required class="w-full bg-slate-800 p-3 rounded text-white" style="color-scheme: dark;">
+                                </div>
+                                <p class="text-lg bg-indigo-600/20 text-indigo-300 p-3 rounded mb-4 font-mono text-center">Rate: $${currentVehicle.price.daily} / day</p>
+                                <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white py-3 rounded-lg font-bold shadow-lg">Confirm Booking</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>`;
+        });
+    </script>
+</body>
+</html>

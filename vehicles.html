@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><title>Vehicles Fleet - RentiGo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="antialiased pt-20">
+    <div id="header-placeholder"></div>
+    <main class="py-12">
+        <div class="max-w-7xl mx-auto px-4"><h1 class="text-4xl font-bold text-center mb-8">Our <span class="text-gradient">Fleet</span></h1>
+            <div class="flex flex-col lg:flex-row gap-8">
+                <!-- Filters Sidebar -->
+                <aside class="w-full lg:w-1/4">
+                    <div class="glass-card rounded-2xl p-6 sticky top-28">
+                        <h2 class="text-lg font-bold mb-4">Filters</h2>
+                        <form id="filter-form" class="space-y-6">
+                            <div><h3 class="text-sm font-semibold mb-2">Vehicle Type</h3>
+                                <label><input type="radio" name="type" value="" checked> All</label><br>
+                                <label><input type="radio" name="type" value="4W"> 4-Wheeler</label><br>
+                                <label><input type="radio" name="type" value="2W"> 2-Wheeler</label>
+                            </div>
+                            <div><h3 class="text-sm font-semibold mb-2">Duration</h3>
+                                <select id="price-plan" class="w-full bg-slate-800 p-2 rounded"><option value="daily">Daily</option><option value="weekly">Weekly</option><option value="monthly">Monthly</option></select>
+                            </div>
+                            <button type="button" onclick="applyFilters()" class="w-full bg-indigo-600 text-white rounded py-2 mt-4">Apply Filters</button>
+                        </form>
+                    </div>
+                </aside>
+                <!-- Vehicle List -->
+                <div class="w-full lg:w-3/4"><div id="results-count" class="mb-4 text-gray-400"></div><div id="vehicles-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div></div>
+            </div>
+        </div>
+    </main>
+    <div id="footer-placeholder"></div>
+    <script src="js/mock-data.js"></script><script src="js/main.js"></script>
+    <script>
+        let currentPlan = 'daily';
+        document.addEventListener('DOMContentLoaded', () => { setTimeout(applyFilters, 100); });
+        function applyFilters() {
+            const typeFilter = document.querySelector('input[name="type"]:checked').value;
+            currentPlan = document.getElementById('price-plan').value;
+            let filtered = mockVehicles;
+            if (typeFilter) filtered = filtered.filter(v => v.type === typeFilter);
+            renderVehicles(filtered);
+        }
+        function renderVehicles(vehicles) {
+            const grid = document.getElementById('vehicles-grid');
+            document.getElementById('results-count').textContent = `Showing ${vehicles.length} vehicles`;
+            grid.innerHTML = '';
+            vehicles.forEach((v) => {
+                grid.innerHTML += `
+                    <div class="glass-card rounded-2xl overflow-hidden cursor-pointer" onclick="window.location.href='vehicle-details.html?id=${v.id}'">
+                        <img src="${v.image}" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold">${v.brand} ${v.model}</h3>
+                            <p class="text-indigo-400">$${v.price[currentPlan]} / ${currentPlan}</p>
+                            <button class="mt-4 w-full bg-indigo-600 text-white py-2 rounded">View Details</button>
+                        </div>
+                    </div>`;
+            });
+        }
+    </script>
+</body>
+</html>

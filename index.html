@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RentiGo - Premium Vehicle Rentals</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="antialiased selection:bg-indigo-500 selection:text-white">
+
+    <!-- Header Placeholder -->
+    <div id="header-placeholder"></div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden min-h-screen flex items-center">
+            <!-- Background Elements -->
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-indigo-600/20 rounded-full blur-[120px] -z-10 animate-float"></div>
+            <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-purple-600/20 rounded-full blur-[100px] -z-10 animate-float" style="animation-delay: 2s;"></div>
+            <div class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[100px] -z-10 animate-float" style="animation-delay: 4s;"></div>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+                <div class="text-center max-w-4xl mx-auto animate-fade-in relative">
+                    <!-- Decorative Elements -->
+                    <div class="hidden md:block absolute -top-10 -left-10 w-20 h-20 border border-indigo-500/30 rounded-full border-dashed animate-spin" style="animation-duration: 10s;"></div>
+                    <div class="hidden md:block absolute top-20 -right-20 w-12 h-12 bg-purple-500/20 rounded-lg backdrop-blur-3xl rotate-12 blur-sm"></div>
+
+                    <span class="inline-flex items-center gap-2 py-1 px-4 rounded-full bg-indigo-500/10 text-indigo-400 text-sm font-semibold mb-6 border border-indigo-500/20 shadow-[0_0_15px_rgba(79,70,229,0.2)]">
+                        <span class="relative flex h-3 w-3">
+                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+                          <span class="relative inline-flex rounded-full h-3 w-3 bg-indigo-500"></span>
+                        </span>
+                        New Fleet Arrived - 2026 Models
+                    </span>
+                    <h1 class="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight mb-8 leading-tight">
+                        Rent Your Dream Ride <br />
+                        <span class="text-gradient drop-shadow-lg">In Minutes.</span>
+                    </h1>
+                    <p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
+                        Experience seamless two-wheeler and four-wheeler rentals. Real-time availability, flexible durations, and premium vehicles at your fingertips.
+                    </p>
+                    <div class="flex flex-col sm:flex-row justify-center gap-4">
+                        <a href="vehicles.html" class="bg-indigo-600 hover:bg-indigo-500 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all shadow-[0_0_20px_rgba(79,70,229,0.4)] hover:shadow-[0_0_30px_rgba(79,70,229,0.6)] hover:-translate-y-1 flex items-center justify-center gap-2 relative overflow-hidden group">
+                            <span class="absolute inset-0 w-full h-full bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out"></span>
+                            <span class="relative flex items-center gap-2">Browse Fleet <i class="fa-solid fa-arrow-right"></i></span>
+                        </a>
+                        <a href="agency-dashboard.html" class="glass text-white px-8 py-4 rounded-full text-lg font-semibold transition-all hover:bg-white/10 flex items-center justify-center gap-2 group">
+                            List Your Vehicle <i class="fa-solid fa-car-side transition-transform group-hover:translate-x-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Search/Filter Bar over Hero -->
+                <div class="mt-20 max-w-5xl mx-auto glass-card rounded-3xl p-6 sm:p-8 animate-fade-in delay-200 shadow-2xl relative z-20">
+                    <form class="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6" action="vehicles.html" method="GET">
+                        <div class="relative group">
+                            <label class="block text-sm font-semibold text-gray-400 mb-2 uppercase tracking-wide">Vehicle Type</label>
+                            <div class="relative">
+                                <i class="fa-solid fa-car absolute left-4 top-1/2 -translate-y-1/2 text-indigo-400 group-hover:text-indigo-300 transition-colors"></i>
+                                <select name="type" class="w-full bg-slate-900/50 border border-slate-700 hover:border-indigo-500/50 text-white rounded-2xl py-3.5 pl-12 pr-4 focus:outline-none focus:ring-2 focus:ring-indigo-500 appearance-none transition-colors cursor-pointer">
+                                    <option value="">All Types (2W / 4W)</option>
+                                    <option value="4W">4-Wheeler (Cars)</option>
+                                    <option value="2W">2-Wheeler (Bikes)</option>
+                                </select>
+                                <i class="fa-solid fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none text-xs"></i>
+                            </div>
+                        </div>
+                        <div class="relative group">
+                            <label class="block text-sm font-semibold text-gray-400 mb-2 uppercase tracking-wide">Duration Plan</label>
+                            <div class="relative">
+                                <i class="fa-regular fa-clock absolute left-4 top-1/2 -translate-y-1/2 text-indigo-400 group-hover:text-indigo-300 transition-colors"></i>
+                                <select name="duration" class="w-full bg-slate-900/50 border border-slate-700 hover:border-indigo-500/50 text-white rounded-2xl py-3.5 pl-12 pr-4 focus:outline-none focus:ring-2 focus:ring-indigo-500 appearance-none transition-colors cursor-pointer">
+                                    <option value="daily">Daily Rate</option>
+                                    <option value="weekly">Weekly Rate</option>
+                                    <option value="monthly">Monthly Rate</option>
+                                </select>
+                                <i class="fa-solid fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none text-xs"></i>
+                            </div>
+                        </div>
+                        <div class="relative group">
+                            <label class="block text-sm font-semibold text-gray-400 mb-2 uppercase tracking-wide">Pick-up Date</label>
+                            <div class="relative">
+                                <i class="fa-regular fa-calendar absolute left-4 top-1/2 -translate-y-1/2 text-indigo-400 group-hover:text-indigo-300 transition-colors"></i>
+                                <input type="date" class="w-full bg-slate-900/50 border border-slate-700 hover:border-indigo-500/50 text-white rounded-2xl py-3.5 pl-12 pr-4 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-colors cursor-pointer" style="color-scheme: dark;">
+                            </div>
+                        </div>
+                        <div class="flex items-end">
+                            <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white rounded-2xl py-3.5 font-bold text-lg transition-all shadow-lg hover:shadow-indigo-500/50 h-[52px]">
+                                Search Fleet
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section (New addition for extensive UI) -->
+        <section class="py-12 border-y border-slate-800 bg-slate-900/30">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center divide-x divide-slate-800">
+                    <div class="px-4">
+                        <div class="text-4xl font-extrabold text-white mb-2 font-mono">5k+</div>
+                        <div class="text-gray-400 text-sm uppercase tracking-widest font-semibold">Active Vehicles</div>
+                    </div>
+                    <div class="px-4">
+                        <div class="text-4xl font-extrabold text-white mb-2 font-mono">120+</div>
+                        <div class="text-gray-400 text-sm uppercase tracking-widest font-semibold">Cities Covered</div>
+                    </div>
+                    <div class="px-4">
+                        <div class="text-4xl font-extrabold text-white mb-2 font-mono">50k+</div>
+                        <div class="text-gray-400 text-sm uppercase tracking-widest font-semibold">Happy Users</div>
+                    </div>
+                    <div class="px-4">
+                        <div class="text-4xl font-extrabold text-white mb-2 font-mono">4.9/5</div>
+                        <div class="text-gray-400 text-sm uppercase tracking-widest font-semibold">Average Rating</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Vehicles Section -->
+        <section class="py-24 relative overflow-hidden">
+            <div class="absolute right-0 top-1/4 w-[400px] h-[400px] bg-indigo-600/10 rounded-full blur-[100px] -z-10 animate-float"></div>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+                    <div>
+                        <span class="text-indigo-400 font-semibold tracking-wider uppercase text-sm mb-2 block">Premium Selection</span>
+                        <h2 class="text-4xl md:text-5xl font-black">Featured <span class="text-gradient">Vehicles</span></h2>
+                        <p class="text-gray-400 mt-4 max-w-2xl text-lg">Discover our top-rated two-wheelers and four-wheelers, carefully vetted by our agency partners for ultimate comfort and style.</p>
+                    </div>
+                    <a href="vehicles.html" class="hidden md:flex items-center gap-2 text-indigo-400 hover:text-indigo-300 font-bold transition-colors group bg-indigo-500/10 px-6 py-3 rounded-full hover:bg-indigo-500/20">
+                        View All Fleet <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i>
+                    </a>
+                </div>
+
+                <!-- Featured Vehicles Grid container -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="featured-vehicles-grid">
+                    <!-- Cards will be populated dynamically -->
+                </div>
+                
+                <div class="mt-10 text-center md:hidden">
+                    <a href="vehicles.html" class="inline-flex items-center gap-2 text-indigo-400 hover:text-indigo-300 font-bold transition-colors bg-indigo-500/10 px-8 py-4 rounded-full w-full justify-center">
+                        View All Fleet <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works & CTA -->
+        <section class="py-24 relative overflow-hidden bg-slate-900/50 border-t border-slate-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="text-center mb-20">
+                    <span class="text-indigo-400 font-semibold tracking-wider uppercase text-sm mb-2 block">Process</span>
+                    <h2 class="text-4xl md:text-5xl font-black mb-6">How It <span class="text-gradient">Works</span></h2>
+                    <p class="text-gray-400 max-w-2xl mx-auto text-lg">Rent your dream vehicle in three simple, seamless steps with zero paperwork required.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
+                    <!-- Connecting line for desktop -->
+                    <div class="hidden md:block absolute top-12 left-[15%] right-[15%] h-0.5 bg-gradient-to-r from-indigo-500/20 via-indigo-500/50 to-indigo-500/20 z-0"></div>
+
+                    <!-- Step 1 -->
+                    <div class="text-center relative z-10 group">
+                        <div class="w-24 h-24 glass-card rounded-3xl flex items-center justify-center text-3xl font-bold mx-auto mb-8 shadow-xl transition-transform group-hover:-translate-y-2 group-hover:shadow-indigo-500/30 text-indigo-400 border border-indigo-500/20">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Find Your Ride</h3>
+                        <p class="text-gray-400 leading-relaxed">Browse through our extensive fleet of 2-wheelers and 4-wheelers. Filter by your specific needs and budget.</p>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="text-center relative z-10 group delay-100">
+                        <div class="w-24 h-24 glass-card rounded-3xl flex items-center justify-center text-3xl font-bold mx-auto mb-8 shadow-xl transition-transform group-hover:-translate-y-2 group-hover:shadow-purple-500/30 text-purple-400 border border-purple-500/20">
+                            <i class="fa-regular fa-calendar-check"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Book Duration</h3>
+                        <p class="text-gray-400 leading-relaxed">Select your pickup and drop-off dates. Whether it's daily, weekly, or a monthly lease, we've got you covered.</p>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="text-center relative z-10 group delay-200">
+                        <div class="w-24 h-24 glass-card rounded-3xl flex items-center justify-center text-3xl font-bold mx-auto mb-8 shadow-xl transition-transform group-hover:-translate-y-2 group-hover:shadow-blue-500/30 text-blue-400 border border-blue-500/20">
+                            <i class="fa-solid fa-key"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Hit The Road</h3>
+                        <p class="text-gray-400 leading-relaxed">Pay securely online, receive instant confirmation, and pick up your keys from the designated agency.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="py-24 relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-black mb-4">What Our Users <span class="text-gradient">Say</span></h2>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="glass-card p-8 rounded-3xl relative">
+                        <i class="fa-solid fa-quote-left text-4xl text-indigo-500/20 absolute top-8 left-8"></i>
+                        <div class="flex items-center gap-1 text-yellow-400 text-sm mb-6 relative z-10 mt-6">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-300 italic mb-8 relative z-10 line-clamp-4">"The UI is gorgeous and incredibly intuitive. I booked a Tesla Model 3 for my weekend getaway in just a few clicks. The pricing is transparent and very competitive."</p>
+                        <div class="flex items-center gap-4">
+                            <img src="https://ui-avatars.com/api/?name=Sarah+Jenkins&background=random" class="w-12 h-12 rounded-full border-2 border-indigo-500/50">
+                            <div>
+                                <h4 class="font-bold text-white">Sarah Jenkins</h4>
+                                <p class="text-sm text-gray-500">Customer</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="glass-card p-8 rounded-3xl relative">
+                        <i class="fa-solid fa-quote-left text-4xl text-purple-500/20 absolute top-8 left-8"></i>
+                        <div class="flex items-center gap-1 text-yellow-400 text-sm mb-6 relative z-10 mt-6">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-300 italic mb-8 relative z-10 line-clamp-4">"As a rental agency, managing our fleet has never been easier. The dashboard gives us perfect oversight over availability and earnings. Highly recommend RentiGo!"</p>
+                        <div class="flex items-center gap-4">
+                            <img src="https://ui-avatars.com/api/?name=David+Chen&background=random" class="w-12 h-12 rounded-full border-2 border-purple-500/50">
+                            <div>
+                                <h4 class="font-bold text-white">David Chen</h4>
+                                <p class="text-sm text-gray-500">Agency Owner</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="glass-card p-8 rounded-3xl relative">
+                        <i class="fa-solid fa-quote-left text-4xl text-blue-500/20 absolute top-8 left-8"></i>
+                        <div class="flex items-center gap-1 text-yellow-400 text-sm mb-6 relative z-10 mt-6">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                        </div>
+                        <p class="text-gray-300 italic mb-8 relative z-10 line-clamp-4">"Absolutely flawless experience. I needed a bike for a quick city commute and got a Ducati within 10 minutes. The mobile responsiveness is spot on."</p>
+                        <div class="flex items-center gap-4">
+                            <img src="https://ui-avatars.com/api/?name=Marcus+T&background=random" class="w-12 h-12 rounded-full border-2 border-blue-500/50">
+                            <div>
+                                <h4 class="font-bold text-white">Marcus T.</h4>
+                                <p class="text-sm text-gray-500">Customer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-gradient-to-r from-indigo-900 to-purple-900 rounded-[2.5rem] p-12 lg:p-20 text-center relative overflow-hidden shadow-2xl">
+                    <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1600&fit=crop&q=80')] mix-blend-overlay opacity-20 object-cover"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
+                    
+                    <div class="relative z-10 max-w-3xl mx-auto">
+                        <h2 class="text-4xl md:text-6xl font-black mb-6">Ready to hit the road?</h2>
+                        <p class="text-xl text-indigo-200 mb-10">Join thousands of happy users and agencies. Start your journey with RentiGo today.</p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                            <a href="register.html" class="bg-white text-indigo-900 px-8 py-4 rounded-full text-lg font-bold hover:bg-gray-100 transition-colors shadow-xl">Create Free Account</a>
+                            <a href="agency-dashboard.html" class="glass px-8 py-4 rounded-full text-lg font-bold text-white hover:bg-white/10 transition-colors">Partner With Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="js/mock-data.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Populate featured vehicles
+        document.addEventListener('DOMContentLoaded', () => {
+            const grid = document.getElementById('featured-vehicles-grid');
+            // Take first 3 vehicles
+            const featured = mockVehicles.slice(0, 3);
+            
+            featured.forEach(vehicle => {
+                const cardHTML = `
+                    <div class="glass-card rounded-3xl overflow-hidden group flex flex-col h-full border border-slate-700/50">
+                        <div class="relative h-64 overflow-hidden cursor-pointer shrink-0" onclick="window.location.href='vehicle-details.html?id=${vehicle.id}'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent z-10 opacity-60 mix-blend-multiply group-hover:opacity-40 transition-opacity"></div>
+                            <img src="${vehicle.image}" alt="${vehicle.brand} ${vehicle.model}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute top-4 right-4 bg-indigo-600/90 backdrop-blur-md text-white px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase z-20 shadow-lg">
+                                ${vehicle.type}
+                            </div>
+                        </div>
+                        <div class="p-8 flex flex-col flex-grow">
+                            <div class="flex justify-between items-start mb-2">
+                                <div>
+                                    <h3 class="text-2xl font-bold text-white group-hover:text-indigo-400 transition-colors cursor-pointer" onclick="window.location.href='vehicle-details.html?id=${vehicle.id}'">${vehicle.brand} ${vehicle.model}</h3>
+                                    <div class="flex items-center text-sm text-gray-400 mt-2 font-medium">
+                                        <i class="fa-solid fa-star text-yellow-400 mr-1.5"></i> ${vehicle.rating} <span class="mx-2 text-slate-600">|</span> 120+ trips
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="grid grid-cols-3 gap-2 mt-6 mb-6 pb-6 border-b border-gray-700/50">
+                                <div class="flex flex-col items-center justify-center text-gray-300 text-xs gap-1.5 bg-slate-800/50 rounded-xl py-3 border border-slate-700/50">
+                                    <i class="fa-solid fa-gas-pump text-indigo-400 text-lg"></i>
+                                    <span class="font-semibold">${vehicle.fuel}</span>
+                                </div>
+                                <div class="flex flex-col items-center justify-center text-gray-300 text-xs gap-1.5 bg-slate-800/50 rounded-xl py-3 border border-slate-700/50">
+                                    <i class="fa-solid fa-gears text-purple-400 text-lg"></i>
+                                    <span class="font-semibold text-center">${vehicle.transmission.substring(0,4)}.</span>
+                                </div>
+                                <div class="flex flex-col items-center justify-center text-gray-300 text-xs gap-1.5 bg-slate-800/50 rounded-xl py-3 border border-slate-700/50">
+                                    <i class="fa-solid fa-user-group text-blue-400 text-lg"></i>
+                                    <span class="font-semibold">${vehicle.seats} Sts</span>
+                                </div>
+                            </div>
+
+                            <div class="flex items-end justify-between mt-auto">
+                                <div>
+                                    <p class="text-xs text-gray-400 mb-1 uppercase tracking-wider font-semibold">Starting from</p>
+                                    <div class="flex items-baseline gap-1">
+                                        <span class="text-3xl font-black text-white font-mono">$${vehicle.price.daily}</span>
+                                        <span class="text-gray-500 text-sm font-semibold">/day</span>
+                                    </div>
+                                </div>
+                                <a href="vehicle-details.html?id=${vehicle.id}" class="bg-indigo-600 hover:bg-indigo-500 text-white px-6 py-3 rounded-xl font-bold transition-all shadow-lg hover:shadow-indigo-500/40">
+                                    Book Now
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                grid.innerHTML += cardHTML;
+            });
+        });
+    </script>
+</body>
+</html>

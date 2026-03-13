@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><title>System Settings - Admin Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="antialiased pt-20 bg-slate-950 text-white">
+    <div id="header-placeholder"></div>
+    <main class="py-8 min-h-screen dashboard-layout gap-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <aside class="w-full md:w-1/4 hidden md:block">
+            <!-- Sidebar content -->
+            <div class="glass-card rounded-3xl p-6 sticky top-28 border border-emerald-500/20 shadow-2xl">
+                <div class="hidden md:flex flex-col items-center mb-8 border-b border-slate-700/50 pb-6">
+                    <div class="w-20 h-20 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-full flex items-center justify-center text-3xl text-white font-black shadow-lg shadow-emerald-500/30 mb-4 border-4 border-slate-800"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h2 class="text-xl font-bold text-white text-center">System Admin</h2>
+                    <p class="text-emerald-400 text-xs font-bold uppercase tracking-widest mt-1">Superuser</p>
+                </div>
+                <nav class="space-y-3">
+                    <a href="admin-dashboard.html" class="flex items-center gap-3 hover:bg-slate-800/80 text-gray-400 hover:text-white px-5 py-3.5 rounded-xl transition-all"><i class="fa-solid fa-chart-pie w-5 text-center"></i> Overview</a>
+                    <a href="admin-users.html" class="flex items-center gap-3 hover:bg-slate-800/80 text-gray-400 hover:text-white px-5 py-3.5 rounded-xl transition-all"><i class="fa-solid fa-users w-5 text-center"></i> User Management</a>
+                    <a href="admin-agencies.html" class="flex items-center gap-3 hover:bg-slate-800/80 text-gray-400 hover:text-white px-5 py-3.5 rounded-xl transition-all"><i class="fa-solid fa-building w-5 text-center"></i> Agencies</a>
+                    <a href="admin-fleet.html" class="flex items-center gap-3 hover:bg-slate-800/80 text-gray-400 hover:text-white px-5 py-3.5 rounded-xl transition-all"><i class="fa-solid fa-car w-5 text-center"></i> Fleet Oversight</a>
+                    <a href="admin-financials.html" class="flex items-center gap-3 hover:bg-slate-800/80 text-gray-400 hover:text-white px-5 py-3.5 rounded-xl transition-all"><i class="fa-solid fa-coins w-5 text-center"></i> Financials</a>
+                    <a href="admin-settings.html" class="flex items-center gap-3 bg-emerald-600 hover:bg-emerald-500 text-white px-5 py-3.5 rounded-xl font-bold transition-all shadow-lg hover:shadow-emerald-500/40 translate-x-1 border-t border-slate-700/50 mt-4 pt-4"><i class="fa-solid fa-gear w-5 text-center"></i> System Settings</a>
+                </nav>
+            </div>
+        </aside>
+
+        <div class="w-full md:w-3/4">
+            <h1 class="text-3xl lg:text-4xl font-black text-white mb-8">System <span class="text-gradient">Settings</span></h1>
+
+            <div class="glass-card p-8 rounded-3xl border border-slate-700/50 mb-8 max-w-2xl">
+                <h3 class="text-xl font-bold text-white mb-6 border-b border-slate-700/50 pb-4">Global Parameters</h3>
+                <form class="space-y-6" onsubmit="alert('System Settings Applied Globally'); event.preventDefault();">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Base Platform Commission (%)</label>
+                        <input type="number" value="20" class="w-full bg-slate-900 border border-slate-700 focus:border-emerald-500 rounded-xl px-4 py-3 outline-none text-white transition-colors">
+                        <p class="text-xs text-gray-500 mt-2">This is the default cut RentiGo takes from agency bookings.</p>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Maintenance Mode</label>
+                        <select class="w-full bg-slate-900 border border-slate-700 focus:border-emerald-500 rounded-xl px-4 py-3 outline-none text-white transition-colors appearance-none">
+                            <option value="off" selected>Off - Production Normal</option>
+                            <option value="on">On - System Locked</option>
+                        </select>
+                    </div>
+                    <div class="pt-4 flex justify-end">
+                        <button type="submit" class="bg-emerald-600 hover:bg-emerald-500 text-white px-8 py-3 rounded-xl font-bold transition-all shadow-lg hover:shadow-emerald-500/40">Apply Settings</button>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="glass-card p-8 rounded-3xl border border-red-500/20 max-w-2xl">
+                <h3 class="text-xl font-bold text-red-400 mb-6 border-b border-slate-700/50 pb-4">Danger Zone</h3>
+                <p class="text-sm text-gray-400 mb-4">Clearing the system cache will briefly disrupt active sessions but will force a global data refresh across all CDN edge nodes.</p>
+                <button class="bg-red-500/10 hover:bg-red-500 hover:text-white text-red-400 border border-red-500/30 px-6 py-3 rounded-xl font-bold transition-all text-sm">Purge Global Cache</button>
+            </div>
+        </div>
+    </main>
+    <div id="footer-placeholder"></div>
+    <script src="js/mock-data.js"></script><script src="js/main.js"></script>
+</body>
+</html>
